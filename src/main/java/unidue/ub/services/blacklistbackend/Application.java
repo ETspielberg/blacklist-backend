@@ -9,7 +9,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 @SpringBootApplication
-@EntityScan("unidue.ub.media.blacklist")
 @EnableEurekaClient
 public class Application extends WebSecurityConfigurerAdapter {
 
@@ -19,12 +18,10 @@ public class Application extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.httpBasic().disable().csrf()
-				.disable();
-		//.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
-		http.authorizeRequests()
-				.anyRequest().hasIpAddress("::1").anyRequest().permitAll().and()
-				.authorizeRequests()
-				.anyRequest().authenticated().anyRequest().permitAll();
+		http.httpBasic()
+				.and()
+				.authorizeRequests().anyRequest().authenticated()
+				.and()
+				.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
 	}
 }
