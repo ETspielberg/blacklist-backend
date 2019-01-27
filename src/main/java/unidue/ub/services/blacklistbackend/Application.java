@@ -20,9 +20,8 @@ public class Application extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.httpBasic()
 				.and()
-				.authorizeRequests().antMatchers(HttpMethod.GET, "/**").permitAll().and()
-				.authorizeRequests().anyRequest().authenticated()
-				.and()
+				.authorizeRequests()
+				.antMatchers("/isBlocked/**").hasIpAddress("127.0.0.1").and()
 				.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
 	}
 }
