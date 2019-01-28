@@ -34,7 +34,7 @@ public class BlacklistController {
         return ResponseEntity.ok(ignoredList);
     }
 
-    @GetMapping("isBlocked/{identifier}")
+    @GetMapping("/isBlocked/{identifier}")
     public ResponseEntity<Boolean> isBlocked(@PathVariable String identifier, String type) {
         boolean isblocked = false;
         Date today = new Date();

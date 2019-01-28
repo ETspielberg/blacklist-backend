@@ -20,8 +20,7 @@ public class Application extends WebSecurityConfigurerAdapter {
 		http.httpBasic()
 				.and()
 				.authorizeRequests()
-                .anyRequest().hasRole("SYSTEM")
-				.antMatchers("/isBlocked/**").hasIpAddress("127.0.0.1").and()
+                .anyRequest().authenticated().and()
 				.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
 	}
 }
