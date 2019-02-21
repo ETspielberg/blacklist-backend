@@ -43,6 +43,8 @@ public class BlacklistController {
             ignoreds = ignoredRepository.findAllByTitleIdAndAndType(identifier, type);
         else
             ignoreds = ignoredRepository.findAllByTitleId(identifier);
+        if (ignoreds == null)
+            return ResponseEntity.ok(false);
         for (Ignored ignored : ignoreds) {
             if (ignored.getExpire().after(today)) {
                 isblocked = true;
