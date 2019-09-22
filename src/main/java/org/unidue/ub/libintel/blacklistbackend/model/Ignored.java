@@ -1,4 +1,4 @@
-package unidue.ub.services.blacklistbackend;
+package org.unidue.ub.libintel.blacklistbackend.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -18,6 +18,7 @@ import java.util.Date;
 @Entity
 public class Ignored {
 
+	@Column(name="title_id")
     private String titleId;
 
     @Id

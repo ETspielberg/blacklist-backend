@@ -1,4 +1,4 @@
-package unidue.ub.services.blacklistbackend;
+package org.unidue.ub.libintel.blacklistbackend;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

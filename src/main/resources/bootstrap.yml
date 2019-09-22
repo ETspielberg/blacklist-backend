@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: blacklist-backend
+  cloud:
+    config:
+      name: blacklist-datasource, service-provider
+      uri: http://localhost:11811
+      username: ${libintel.config.username:dalek}
+      password: ${libintel.config.password:3l1m1nat3}
+      label: ${libintel.profile:dev}
